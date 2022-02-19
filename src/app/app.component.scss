@@ -1,0 +1,18 @@
+.main {
+    border: 1px solid gray;
+}
+
+.heading {
+    margin-top: 2rem;
+    color: purple;
+}
+
+li {
+    list-style: none;
+    display: inline;
+    padding: 1rem;
+
+    a {
+        text-decoration: none;
+    }
+}

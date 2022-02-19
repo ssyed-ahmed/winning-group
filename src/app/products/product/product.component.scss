@@ -1,0 +1,16 @@
+.product {
+  width: 20rem;
+  // padding: 3rem;
+  border: 2px solid lightgray;
+}
+.product-price {
+  color: green;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+
+.product-discount {
+  color: red;
+  font-weight: bold;
+  font-size: 10px;
+}

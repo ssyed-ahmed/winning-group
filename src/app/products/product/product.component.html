@@ -1,0 +1,28 @@
+<div class="product">
+  <div class="card-group">
+    <div class="card" style="width: 20rem;">
+      <img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text text-center">{{ product.name }}</p>
+          <div class="row px-3">
+            <hr>
+            <div class="col product-price">
+              {{ product.price | currency }}
+            </div>
+            <div class="col product-discount">
+              {{ (product.rrp - product.price) | currency }} off RRP of {{ product.rrp | currency }}
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <a href="javascript:void(0)" class="btn btn-success"><i class="bi bi-cart"></i> Add to cart</a>
+            </div>
+            <div class="col">
+              <a href="javascript:void(0)" class="btn btn-light"><i class="bi bi-arrow-left-right"></i> Compare</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
