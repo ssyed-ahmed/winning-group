@@ -10,6 +10,8 @@ import { ProductComponent } from './products/product/product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductModalComponent } from './products/product-modal/product-modal.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { StoreModule } from '@ngrx/store';
+import { ShoppingCartReducer } from './shopping-cart/store/shopping-cart.reducer';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    StoreModule.forRoot({shoppingCart: ShoppingCartReducer}),
   ],
   providers: [],
   bootstrap: [AppComponent],
