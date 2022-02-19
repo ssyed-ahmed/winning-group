@@ -5,22 +5,22 @@
       <div class="card-body">
         <h5 class="card-title"></h5>
         <p class="card-text text-center">{{ product.name }}</p>
-          <div class="row px-3">
-            <hr>
-            <div class="col product-price">
-              {{ product.price | currency : 'USD' : 'symbol' : '1.0-2' }}
-            </div>
-            <div class="col product-discount">
-              {{ (product.rrp - product.price) | currency : 'USD' : 'symbol' : '1.0-2' }} off RRP of {{ product.rrp | currency : 'USD' : 'symbol' : '1.0-2' }}
+        <div class="row px-3">
+          <hr>
+          <div class="col product-price">
+            {{ product.price | currency : 'USD' : 'symbol' : '1.0-2' }}
+          </div>
+          <div class="col product-discount">
+            {{ (product.rrp - product.price) | currency : 'USD' : 'symbol' : '1.0-2' }} off RRP of {{ product.rrp | currency : 'USD' : 'symbol' : '1.0-2' }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-success" (click)="addToCart(product)"><i class="bi bi-cart"></i> Add to cart</button>
+              <button type="button" class="btn btn-light" (click)="compareProducts(product)"><i class="bi bi-arrow-left-right"></i> Compare</button>
             </div>
           </div>
-          <div class="row align-items-start">
-            <div class="col">
-              <a href="javascript:void(0)" (click)="addToCart(product)" class="btn btn-success"><i class="bi bi-cart"></i> Add to cart</a>
-            </div>
-            <div class="col">
-              <a href="javascript:void(0)" (click)="compareProducts(product)" class="btn btn-light"><i class="bi bi-arrow-left-right"></i> Compare</a>
-            </div>
         </div>
       </div>
     </div>
