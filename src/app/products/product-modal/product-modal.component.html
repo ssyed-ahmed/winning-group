@@ -9,12 +9,16 @@
         <div class="col">{{ product.name }}</div>
       </div>
       <div class="row">
-        <div class="col property-name">Price:</div>
-        <div class="col">{{ product.price | currency: 'USD' : 'symbol': '1.0-0' }}</div>
+        <div class="col property-name">Retail price:</div>
+        <div class="col">{{ product.rrp | currency: 'USD' : 'symbol': '1.0-0' }}</div>
       </div>
       <div class="row">
           <div class="col property-name">Discount:</div>
           <div class="col">{{ (product.rrp - product.price) | currency : 'USD' : 'symbol' : '1.0-2' }}</div>
+      </div>
+      <div class="row">
+        <div class="col property-name">You pay:</div>
+        <div class="col">{{ product.price | currency: 'USD' : 'symbol': '1.0-0' }}</div>
       </div>
       <div class="row">
           <div class="col message">

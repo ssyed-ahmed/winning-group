@@ -19,12 +19,11 @@ export class ProductComponent implements OnInit {
   }
 
   public addToCart(product: Product, modalContent: any): void {
-    console.log('add to cart', product);
     const modalRef = this.modalService.open(ProductModalComponent);
     modalRef.componentInstance.product = this.product;
   }
 
   public compareProducts(product: Product): void {
-    console.log('compare products', product);
+    
   }
 }
