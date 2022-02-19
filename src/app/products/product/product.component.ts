@@ -13,4 +13,12 @@ export class ProductComponent implements OnInit {
   public ngOnInit(): void {
 
   }
+
+  public addToCart(product: Product): void {
+    console.log('add to cart', product);
+  }
+
+  public compareProducts(product: Product): void {
+    console.log('compare products', product);
+  }
 }
