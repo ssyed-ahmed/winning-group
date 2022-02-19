@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './products/product/product.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductModalComponent } from './products/product-modal/product-modal.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,16 @@ import { ProductComponent } from './products/product/product.component';
     HomeComponent,
     ProductsComponent,
     ProductComponent,
+    ProductModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ProductModalComponent],
 })
 export class AppModule { }

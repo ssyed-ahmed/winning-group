@@ -1,0 +1,28 @@
+<div>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Product information</h4>
+      <a href="javascript:void(0)" class="close-icon" aria-label="close" (click)="closeModal()"><i class="bi bi-x"></i></a>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col property-name">Name:</div>
+        <div class="col">{{ product.name }}</div>
+      </div>
+      <div class="row">
+        <div class="col property-name">Price:</div>
+        <div class="col">{{ product.price | currency: 'USD' : 'symbol': '1.0-0' }}</div>
+      </div>
+      <div class="row">
+          <div class="col property-name">Discount:</div>
+          <div class="col">{{ (product.rrp - product.price) | currency : 'USD' : 'symbol' : '1.0-2' }}</div>
+      </div>
+      <div class="row">
+          <div class="col message">
+            <p class="mt-10">Added to cart <i class="bi bi-cart"></i></p>
+          </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" aria-label="close" (click)="closeModal()">Close</button>
+    </div>
+</div>
