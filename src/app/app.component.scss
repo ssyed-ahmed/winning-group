@@ -1,10 +1,11 @@
-.main {
-    border: 1px solid gray;
-}
-
 .heading {
     margin-top: 2rem;
     color: purple;
+}
+
+nav {
+    margin-left: 70px;
+    margin-bottom: 20px;
 }
 
 li {
@@ -15,4 +16,8 @@ li {
     a {
         text-decoration: none;
     }
+    
+}
+.active {
+    color: black;
 }
