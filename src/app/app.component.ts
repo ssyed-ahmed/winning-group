@@ -23,4 +23,8 @@ export class AppComponent implements OnInit {
       console.log(this.currentRoute);
     });
   }
+
+  public showCart(): void {
+    this.router.navigate(['/shopping-cart']);
+  }
 }
