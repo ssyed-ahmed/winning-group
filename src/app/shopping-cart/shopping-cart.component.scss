@@ -1,6 +1,8 @@
 .cart-layout {
     margin-top: 20px;
     margin-left: 33px;
+    margin-right: 33px;
+    margin-bottom: var(--bs-gutter-y, 100%);
 }
 .delete-item {
     color: red;
@@ -11,5 +13,4 @@
     float: right;
     font-weight: bold;
     margin-right: 5px;
-    margin-top: 20px;
 }
