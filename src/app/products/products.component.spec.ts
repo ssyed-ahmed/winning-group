@@ -1,17 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
+import { from, of } from 'rxjs';
+import { Product } from '../shared/models/product.model';
 import { ProductsComponent } from './products.component';
 import { ProductsService } from './services/products.service';
 
+
 import createSpyObj = jasmine.createSpyObj;
-import { of } from 'rxjs';
-import { Product } from '../shared/models/product.model';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
   let mockProductsService;
-  const products: Array<Product> = [
+  const mockProducts: Array<Product> = [
     {"sku":"671695659-X","name":"Veal Inside - Provimi","price":166,"rrp":223,"image":"http://dummyimage.com/300x300.png/ff4444/ffffff"},
     {"sku":"740799661-X","name":"Milk - Condensed","price":165,"rrp":220,"image":"http://dummyimage.com/300x300.png/cc0000/ffffff"},
     {"sku":"296764728-4","name":"Juice - Ocean Spray Kiwi","price":131,"rrp":222,"image":"http://dummyimage.com/300x300.png/dddddd/000000"},
@@ -33,6 +34,7 @@ describe('ProductsComponent', () => {
           useValue: mockProductsService,
         }
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));
@@ -49,10 +51,13 @@ describe('ProductsComponent', () => {
   });
 
   describe('ngOnInit()', () => {
-    it('should return a list of products', () => {
-      const products$ = mockProductsService.loadProducts.and.returnValue(of(products));
+    it('should return a list of products', (done) => {
+      const products$ = mockProductsService.loadProducts.and.returnValue(of(mockProducts));
       component.ngOnInit();
-      expect(component.products$).toEqual(products$);
+      component.products$.subscribe(values => {
+        expect(values.length).toEqual(mockProducts.length);
+        done();
+      });
     });
   });
 });
