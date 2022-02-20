@@ -47,13 +47,31 @@ export const ShoppingCartReducer = createReducer(
         }
     }),
     on(removeFromCart, (state, action) => {
-        let items = [...state.items].slice();
         const product = action.product;
-        const newProducts = items.filter(item => item.product.sku !== product.sku);
-        return {
-            ...state,
-            products: newProducts,
-        };
+        const existingItems = state.items.slice();
+        const foundItem = existingItems.find(item => item.product.sku === product.sku);
+        if (foundItem) {
+            const quantity = foundItem.quantity;
+            if (quantity > 1) {
+                const newItem = {
+                    ...foundItem,
+                    product: {...foundItem.product},
+                    quantity: foundItem.quantity - 1,
+                };
+                const foundItemIndex = existingItems.findIndex(item => item.product.sku === product.sku);
+                existingItems[foundItemIndex] = newItem;
+                const newState = {
+                    ...state,
+                    items: [...existingItems],
+                };
+                return newState;
+            } else {
+                return {
+                    ...state,
+                    items: [...existingItems.filter(item => item.product.sku !== product.sku)],
+                };
+            }
+        }
     })
 )
 

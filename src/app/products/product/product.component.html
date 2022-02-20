@@ -7,10 +7,10 @@
         <p class="card-text text-center">{{ product.name }}</p>
         <div class="row px-3">
           <hr>
-          <div class="col product-price">
+          <div class="col-5 product-price">
             {{ product.price | currency : 'USD' : 'symbol' : '1.0-2' }}
           </div>
-          <div class="col product-discount">
+          <div class="col-7 product-discount">
             {{ (product.rrp - product.price) | currency : 'USD' : 'symbol' : '1.0-2' }} off RRP of {{ product.rrp | currency : 'USD' : 'symbol' : '1.0-2' }}
           </div>
         </div>
