@@ -1,6 +1,12 @@
+.main {
+    border: 1px solid lightgray;
+}
 .heading {
-    margin-top: 2rem;
+    // margin-top: 2rem;
     color: purple;
+    font-size: 18x;
+    font-weight: bold;
+    margin-left: 10px;
 }
 .user {
     display: inline;
@@ -9,9 +15,9 @@
     float: right;
 }
 .cart {
-    display: inline;
-    margin-top: -35px;
-    margin-right: 100px;
+    display: inline-block;
+    // margin-top: -35px;
+    // margin-right: 100px;
     float: right;
 }
 
@@ -32,4 +38,7 @@ li {
 }
 .active {
     color: black;
+}
+.navbar-expand-lg .navbar-collapse {
+    height: 75px;
 }

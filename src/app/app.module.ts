@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { shoppingCartReducer } from './shopping-cart/store/shopping-cart.reducer';
 import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ErrorsComponent } from './errors/errors.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ProductComponent,
     ProductModalComponent,
     ShoppingCartComponent,
+    ErrorsComponent,
   ],
   imports: [
     BrowserModule,

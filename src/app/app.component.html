@@ -1,26 +1,18 @@
 <div class="container main">
-  <div class="row">
-    <div class="col">
-      <div class="row">
-        <div class="col text-center">
-          <h1 class="heading">Winning eCommerce App</h1>
-          <div class="user">Welcome Bob <i class="bi bi-person-fill"></i></div>
-          <div class="cart">
-            <a href="javascript:void(0)" (click)="showCart()"><i class="bi bi-cart-fill"></i></a>
-          </div>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand heading" href="javascript:void(0)" routerLink="/home"><i class="bi bi-moon-stars-fill"></i> Winning eCommerce</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" routerLink="/home" [class.active]="currentRoute === '/home'"><i class="bi bi-house-door-fill"></i> Home</a>
+          <a class="nav-link" routerLink="/products" [class.active]="currentRoute === '/products'"><i class="bi bi-box2-fill"></i> Products</a>
+          <a class="nav-link" href="javascript:void(0)" (click)="showCart()" [class.active]="currentRoute === '/shopping-cart'"><i class="bi bi-cart-fill"></i> Cart</a>
         </div>
       </div>
-      <nav>
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a class= "nav-link" routerLink="/home" [class.active]="currentRoute === '/home'"><i class="bi bi-house-door-fill"></i> Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/products" [class.active]="currentRoute === '/products'"><i class="bi bi-box2-fill"></i> Products</a>
-          </li>
-        </ul>
-      </nav>
-      <router-outlet></router-outlet>
     </div>
-  </div>
+  </nav>
+  <router-outlet></router-outlet>
 </div>

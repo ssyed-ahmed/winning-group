@@ -6,6 +6,7 @@ import { shoppingCartFeatureKey } from 'src/app/shopping-cart/store/shopping-car
 import { initialState } from 'src/app/shopping-cart/store/shopping-cart.reducer';
 import { Product } from 'src/app/shared/models/product.model';
 import { addToCart } from 'src/app/shopping-cart/store/shopping-cart.actions';
+import { By } from '@angular/platform-browser';
 
 describe('ProductComponent', () => {
     let component: ProductComponent;
@@ -61,4 +62,19 @@ describe('ProductComponent', () => {
             expect(dispatchSpy).toHaveBeenCalledWith(addToCart({product}));
         });
     });
+
+    // it('should render the product component', () => {
+    //     const { debugElement } = fixture;
+    //     component.product = {
+    //         sku: 'test',
+    //         name: 'Test product',
+    //         price: 100,
+    //         rrp: 200,
+    //         image: 'some-image',
+    //     };
+    //     component.ngOnInit();
+    //     fixture.detectChanges();
+    //     const productPrice = debugElement.query(By.css('product-price'));
+    //     expect(productPrice).toBeTruthy();
+    //   });
 });
