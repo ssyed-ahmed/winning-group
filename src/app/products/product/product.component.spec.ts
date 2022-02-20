@@ -62,19 +62,4 @@ describe('ProductComponent', () => {
             expect(dispatchSpy).toHaveBeenCalledWith(addToCart({product}));
         });
     });
-
-    // it('should render the product component', () => {
-    //     const { debugElement } = fixture;
-    //     component.product = {
-    //         sku: 'test',
-    //         name: 'Test product',
-    //         price: 100,
-    //         rrp: 200,
-    //         image: 'some-image',
-    //     };
-    //     component.ngOnInit();
-    //     fixture.detectChanges();
-    //     const productPrice = debugElement.query(By.css('product-price'));
-    //     expect(productPrice).toBeTruthy();
-    //   });
 });
