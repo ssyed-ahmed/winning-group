@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+Instructions:
+
+1. Unzip the file winning-group.zip to any folder
+2. change into the winning-group directory
+3. Run 'npm install' to install all the package dependencies
+4. Run 'npm run start' to start the angular application
+5. Open the url 'http://localhost:4200/' in browser
+6. To run the unit tests, run the command 'npm run test'
