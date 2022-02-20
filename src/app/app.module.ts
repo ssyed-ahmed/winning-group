@@ -12,6 +12,8 @@ import { ProductModalComponent } from './products/product-modal/product-modal.co
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { StoreModule } from '@ngrx/store';
 import { ShoppingCartReducer } from './shopping-cart/store/shopping-cart.reducer';
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { ShoppingCartReducer } from './shopping-cart/store/shopping-cart.reducer
     HttpClientModule,
     NgbModule,
     StoreModule.forRoot({shoppingCart: ShoppingCartReducer}),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
   bootstrap: [AppComponent],
