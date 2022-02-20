@@ -1,7 +1,8 @@
 import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, State, Action } from '@ngrx/store';
 import { Product } from 'src/app/shared/models/product.model';
 import { addToCart, removeFromCart } from './shopping-cart.actions';
+import produce, { enableES5 } from 'immer';
 
 export interface ShoppingCartItem {
     product: Product;
@@ -19,20 +20,24 @@ export const initialState: ShoppingCartState = {
 export const ShoppingCartReducer = createReducer(
     initialState,
     on(addToCart, (state, action) => {
+        console.log('previous state', state);
         const product = action.product;
         const existingItems = state.items.slice();
         const foundItem = existingItems.find(item => item.product.sku === product.sku);
         if (foundItem) {
             const newItem = {
                 ...foundItem,
+                product: {...foundItem.product},
                 quantity: foundItem.quantity + 1,
             };
             const foundItemIndex = existingItems.findIndex(item => item.product.sku === product.sku);
             existingItems[foundItemIndex] = newItem;
-            return {
+            const newState = {
                 ...state,
-                items: existingItems,
+                items: [...existingItems],
             };
+            console.log('new state', state);
+            return newState;
         } else {
             const newItem = {
                 product: action.product,
@@ -54,3 +59,8 @@ export const ShoppingCartReducer = createReducer(
         };
     })
 )
+
+export function shoppingCartReducer(state: ShoppingCartState, action: Action): ShoppingCartState {
+    enableES5();
+    return produce(state, draft => ShoppingCartReducer(draft, action));
+}

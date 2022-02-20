@@ -16,9 +16,7 @@ export class ProductsComponent implements OnInit {
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.products$ = this.productsService.loadProducts().pipe(
-      tap(products => console.log(products)),
-    );
+    this.products$ = this.productsService.loadProducts();
   }
 
 }

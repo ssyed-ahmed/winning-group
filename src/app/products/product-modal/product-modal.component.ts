@@ -13,7 +13,7 @@ export class ProductModalComponent implements OnInit {
     constructor(private modalService: NgbModal) {}
 
     public ngOnInit(): void {
-        console.log(this.product);
+        
     }
 
     public closeModal(): void {
