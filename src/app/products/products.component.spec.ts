@@ -1,6 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
-import { from, of } from 'rxjs';
+import { of } from 'rxjs';
 import { Product } from '../shared/models/product.model';
 import { ProductsComponent } from './products.component';
 import { ProductsService } from './services/products.service';
@@ -25,9 +25,7 @@ describe('ProductsComponent', () => {
   ];
 
   beforeEach(async(() => {
-    mockProductsService = createSpyObj<ProductsService>([
-      'loadProducts'
-    ]);
+    mockProductsService = createSpyObj<ProductsService>(['loadProducts']);
     TestBed.configureTestingModule({
       declarations: [ ProductsComponent ],
       providers: [
