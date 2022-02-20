@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
   }
 
   public addToCart(product: Product): void {
-    const modalRef = this.modalService.open(ProductModalComponent);
+    const modalRef = this.modalService.open(ProductModalComponent, { centered: true });
     modalRef.componentInstance.product = this.product;
     this.store.dispatch(addToCart({product}));
   }
