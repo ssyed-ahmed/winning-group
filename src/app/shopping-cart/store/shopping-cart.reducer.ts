@@ -1,5 +1,4 @@
-import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
-import { createReducer, on, State, Action } from '@ngrx/store';
+import { createReducer, on, Action } from '@ngrx/store';
 import { Product } from 'src/app/shared/models/product.model';
 import { addToCart, removeFromCart } from './shopping-cart.actions';
 import produce, { enableES5 } from 'immer';
