@@ -1,9 +1,11 @@
 import { ProductComponent } from "./product.component";
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { shoppingCartFeatureKey } from 'src/app/shopping-cart/store/shopping-cart.selector';
 import { initialState } from 'src/app/shopping-cart/store/shopping-cart.reducer';
+import { Product } from 'src/app/shared/models/product.model';
+import { addToCart } from 'src/app/shopping-cart/store/shopping-cart.actions';
 
 describe('ProductComponent', () => {
     let component: ProductComponent;
@@ -12,7 +14,10 @@ describe('ProductComponent', () => {
 
     beforeEach(async(() => {
         const modalServiceMock = jasmine.createSpyObj<NgbModal>(['open']);
-
+        modalServiceMock.open.and.returnValue(
+            { componentInstance: {
+                product: null,
+            } } as NgbModalRef);
         TestBed.configureTestingModule({
             declarations: [ ProductComponent ],
             providers: [
@@ -39,5 +44,21 @@ describe('ProductComponent', () => {
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    describe('addToCart()', () => {
+        it('should dispatch an action addToCart', () => {
+            const dispatchSpy = spyOn(mockStore, 'dispatch');
+            const product: Product = {
+                sku: 'test',
+                name: 'Test product',
+                price: 100,
+                rrp: 200,
+                image: 'some-image',
+            };
+
+            component.addToCart(product);
+            expect(dispatchSpy).toHaveBeenCalledWith(addToCart({product}));
+        });
     });
 });
