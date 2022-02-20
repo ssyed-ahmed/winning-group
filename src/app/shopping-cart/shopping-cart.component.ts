@@ -18,8 +18,6 @@ export class ShoppingCartComponent implements OnInit {
     constructor(private store: Store) {}
 
     public ngOnInit(): void {
-        this.store.select(ShoppingCartSelectors.shoppingCart).subscribe(items => {
-            console.log(items);
-        });
+        this.items$ = this.store.select(ShoppingCartSelectors.shoppingCart);
     }
 }
