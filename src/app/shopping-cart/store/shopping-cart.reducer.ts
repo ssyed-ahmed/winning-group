@@ -20,7 +20,6 @@ export const initialState: ShoppingCartState = {
 export const ShoppingCartReducer = createReducer(
     initialState,
     on(addToCart, (state, action) => {
-        console.log('previous state', state);
         const product = action.product;
         const existingItems = state.items.slice();
         const foundItem = existingItems.find(item => item.product.sku === product.sku);
@@ -36,7 +35,6 @@ export const ShoppingCartReducer = createReducer(
                 ...state,
                 items: [...existingItems],
             };
-            console.log('new state', state);
             return newState;
         } else {
             const newItem = {
