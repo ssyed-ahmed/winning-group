@@ -11,7 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductModalComponent } from './products/product-modal/product-modal.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { StoreModule } from '@ngrx/store';
-import { ShoppingCartReducer, shoppingCartReducer } from './shopping-cart/store/shopping-cart.reducer';
+import { shoppingCartReducer } from './shopping-cart/store/shopping-cart.reducer';
 import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
