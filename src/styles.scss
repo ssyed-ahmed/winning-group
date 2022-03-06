@@ -1,5 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 
+$backgroundColour: lightgray;
+$borderColour: lightgray;
+$productPriceColour: green;
+$productDiscountColour: red;
+
 body {
-    background-color: lightgray;
+    background-color: $backgroundColour;
 }

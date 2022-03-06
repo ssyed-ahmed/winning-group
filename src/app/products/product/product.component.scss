@@ -1,6 +1,8 @@
+@import '../../../styles.scss';
+
 .product {
   width: 20rem;
-  border: 10px solid lightgray;
+  border: 10px solid $borderColour;
   margin-bottom: 10px;
   margin-top: 20px;
   
@@ -10,18 +12,19 @@
     margin-left: 17%;
     margin-top: 5%;
   }
-}
-.product-price {
-  color: green;
-  font-weight: bold;
-  font-size: 18px;
-  padding-bottom: 1rem;
-  padding-left: 15px;
-}
 
-.product-discount {
-  color: red;
-  font-weight: bold;
-  font-size: 11px;
-  padding-top: 0.4rem;
+  &-price {
+    color: $productPriceColour;
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 1rem;
+    padding-left: 15px !important;
+  }
+
+  &-discount {
+    color: $productDiscountColour;
+    font-weight: bold;
+    font-size: 11px;
+    padding-top: 0.4rem;
+  }
 }
