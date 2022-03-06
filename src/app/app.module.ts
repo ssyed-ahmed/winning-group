@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorsComponent } from './errors/errors.component';
 import { shoppingCartReducer } from './shopping-cart/store/shopping-cart.reducer';
+import { ProductModalComponent } from './products/product-modal/product-modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorsComponent,
+    ProductModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,5 +28,6 @@ import { shoppingCartReducer } from './shopping-cart/store/shopping-cart.reducer
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [ProductModalComponent],
 })
 export class AppModule { }
