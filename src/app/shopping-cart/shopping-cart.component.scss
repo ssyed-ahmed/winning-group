@@ -1,16 +1,22 @@
+@import "../scss/colors";
+
+:host {
+  font-size: 1rem;
+}
+
 .cart-layout {
-    margin-top: 20px;
-    margin-left: 33px;
-    margin-right: 33px;
-    margin-bottom: var(--bs-gutter-y, 100%);
+  margin-top: 1.25rem;
+  margin-left: 2.0625rem;
+  margin-right: 2.0625rem;
+  margin-bottom: var(--bs-gutter-y, 100%);
 }
 .delete-item {
-    color: red;
-    font-size: 15px;
-    font-weight: bold;
+  color: $delete-icon-color;
+  font-size: 1.5625rem;
+  font-weight: bold;
 }
 .final-payment {
-    float: right;
-    font-weight: bold;
-    margin-right: 5px;
+  float: right;
+  font-weight: bold;
+  margin-right: 0.3125rem;
 }
