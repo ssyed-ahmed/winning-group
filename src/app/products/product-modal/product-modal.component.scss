@@ -1,18 +1,24 @@
+@import "../../scss/colors";
+
+:host {
+  font-size: 1rem;
+}
+
 .property-name {
-    font-weight: bold;
+  font-weight: bold;
 }
 .message {
-    margin-top: 20px;
-    margin-bottom: -20px;
-    color: lightcoral;
-    font-weight: bold;
+  margin-top: 1.25rem;
+  margin-bottom: -1.25rem;
+  color: $message-color;
+  font-weight: bold;
 }
 .close-button {
-    color: red;
-    font-weight: bold;
+  color: $close-button-color;
+  font-weight: bold;
 }
 .close-icon {
-    color: red;
-    font-weight: bold;
-    font-size: 25px;
+  color: $close-button-color;
+  font-weight: bold;
+  font-size: 1.5625rem;
 }

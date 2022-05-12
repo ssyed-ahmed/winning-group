@@ -1,28 +1,47 @@
 <div class="product" *ngIf="product">
   <div class="card-group">
-    <div class="card" style="width: 20rem;">
-      <img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
+    <div class="card" style="width: 20rem">
+      <img
+        src="{{ product.image }}"
+        class="card-img-top"
+        alt="{{ product.name }}"
+      />
       <div class="card-body">
         <h5 class="card-title"></h5>
         <p class="card-text text-center">{{ product.name }}</p>
         <div class="row px-3">
           <div class="col">
-            <hr>
+            <hr />
           </div>
         </div>
         <div class="row px-3">
-          <div class="col-5 product-price">
-            {{ product.price | currency : 'USD' : 'symbol' : '1.0-2' }}
+          <div class="col-5 product__product-price">
+            {{ product.price | currency: "USD":"symbol":"1.0-2" }}
           </div>
-          <div class="col-7 product-discount">
-            {{ (product.rrp - product.price) | currency : 'USD' : 'symbol' : '1.0-2' }} off RRP of {{ product.rrp | currency : 'USD' : 'symbol' : '1.0-2' }}
+          <div class="col-7 product__product-discount">
+            {{
+              product.rrp - product.price | currency: "USD":"symbol":"1.0-2"
+            }}
+            off RRP of {{ product.rrp | currency: "USD":"symbol":"1.0-2" }}
           </div>
         </div>
         <div class="row">
           <div class="col text-center mb-8">
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-success" (click)="addToCart(product)"><i class="bi bi-cart"></i> Add to cart</button>
-              <button type="button" class="btn btn-light" (click)="compareProducts(product)"><i class="bi bi-arrow-left-right"></i> Compare</button>
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="addToCart(product)"
+              >
+                <i class="bi bi-cart"></i> Add to cart
+              </button>
+              <button
+                type="button"
+                class="btn btn-light"
+                (click)="compareProducts(product)"
+              >
+                <i class="bi bi-arrow-left-right"></i> Compare
+              </button>
             </div>
           </div>
         </div>
