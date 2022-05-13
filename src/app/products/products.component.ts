@@ -14,9 +14,13 @@ import { ProductsSelectors } from './store/products.selector';
 export class ProductsComponent implements OnInit {
   products$: Observable<Array<Product>>;
 
-  constructor(private readonly store: Store) {}
+  constructor(
+    private readonly store: Store,
+    private productsService: ProductsService
+  ) {}
 
   ngOnInit() {
-    this.products$ = this.store.select(ProductsSelectors.products);
+    // this.products$ = this.store.select(ProductsSelectors.products);
+    this.products$ = this.productsService.loadProducts();
   }
 }
