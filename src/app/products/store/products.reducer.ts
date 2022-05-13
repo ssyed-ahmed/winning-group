@@ -1,7 +1,8 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, Action } from '@ngrx/store';
 import { Product } from 'src/app/shared/models/product.model';
 import { ProductsActions } from './products.actions';
+import produce, { enableES5 } from 'immer';
 
 export interface ProductsState extends EntityState<Product> {
   isLoading: boolean;
@@ -30,7 +31,7 @@ export const productsInitialState: ProductsState = productsAdapter.getInitialSta
   }
 );
 
-const reducer = createReducer(
+const _productsReducer = createReducer(
   productsInitialState,
 
   on(ProductsActions.loadProducts, (state) => {
@@ -49,3 +50,11 @@ const reducer = createReducer(
     return state;
   })
 );
+
+export function productsReducer(
+  state: ProductsState,
+  action: Action
+): ProductsState {
+  enableES5();
+  return produce(state, (draft) => _productsReducer(draft, action));
+}
