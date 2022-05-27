@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ProductsActions } from './products/store/products.actions';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +10,13 @@ import { ProductsActions } from './products/store/products.actions';
 })
 export class AppComponent implements OnInit {
   title = 'winning-group';
+  ō;
 
   currentRoute: string;
 
   constructor(private router: Router, private readonly store: Store) {}
 
   public ngOnInit(): void {
-    this.loadProducts();
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
@@ -27,9 +26,5 @@ export class AppComponent implements OnInit {
 
   public showCart(): void {
     this.router.navigate(['/shopping-cart']);
-  }
-
-  private loadProducts(): void {
-    this.store.dispatch(ProductsActions.loadProducts());
   }
 }

@@ -5,6 +5,7 @@ import { ProductsService } from './services/products.service';
 import { map, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { ProductsSelectors } from './store/products.selector';
+import { ProductsActions } from './store/products.actions';
 
 @Component({
   selector: 'app-products',
@@ -20,7 +21,11 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.products$ = this.store.select(ProductsSelectors.products);
-    this.products$ = this.productsService.loadProducts();
+    this.store.dispatch(ProductsActions.loadProducts());
+    this.handleProductsLoadSuccess();
+  }
+
+  private handleProductsLoadSuccess(): void {
+    this.products$ = this.store.select(ProductsSelectors.products);
   }
 }
