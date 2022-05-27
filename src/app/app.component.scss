@@ -1,4 +1,4 @@
-@import "./scss/colors";
+@import './scss/colors';
 
 :host {
   font-size: 1rem;
@@ -24,6 +24,18 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-left: 1.875rem;
+
+  &:hover {
+    color: $product-price-color;
+  }
+
+  &:active {
+    color: $header-color;
+  }
+
+  &:focus {
+    color: $header-color;
+  }
 }
 .cart {
   display: inline-block;
@@ -43,4 +55,12 @@ li {
 }
 .navbar-expand-lg .navbar-collapse {
   height: 4.6875rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: $product-price-color;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: $header-color;
 }
