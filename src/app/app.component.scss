@@ -5,7 +5,7 @@
 }
 
 .main {
-  background-color: $main-background-color;
+  background-color: lighten($primary-color, 20);
   border: 0.0625rem solid $border-color;
 }
 .container,
@@ -20,7 +20,7 @@
 }
 
 .heading {
-  color: $header-color;
+  color: $primary-color;
   font-size: 2.5rem;
   font-weight: bold;
   margin-left: 1.875rem;
@@ -30,11 +30,11 @@
   }
 
   &:active {
-    color: $header-color;
+    color: $primary-color;
   }
 
   &:focus {
-    color: $header-color;
+    color: $primary-color;
   }
 }
 .cart {
@@ -54,13 +54,20 @@ li {
   color: black;
 }
 .navbar-expand-lg .navbar-collapse {
-  height: 4.6875rem;
+  height: 10rem;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: $product-price-color;
+  color: $secondary-color;
 }
 
 .navbar-dark .navbar-nav .nav-link.active {
-  color: $header-color;
+  color: $primary-color;
+}
+.navbar-nav {
+  margin-left: 15rem;
+
+  nav-link {
+    margin-left: 2rem;
+  }
 }

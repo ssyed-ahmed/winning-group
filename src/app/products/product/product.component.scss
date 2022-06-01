@@ -6,9 +6,10 @@
 
 .product {
   width: 20rem;
-  border: 0.625rem solid $border-color;
+  border: 0.15rem solid black;
   margin-bottom: 0.625rem;
   margin-top: 1.25rem;
+  box-shadow: 5px 8px;
 
   img {
     width: 12.5rem;

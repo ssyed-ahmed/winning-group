@@ -1,8 +1,10 @@
-@import "~bootstrap/scss/bootstrap";
-@import "app/scss/variables";
-@import "app/scss/colors";
+@import '~bootstrap/scss/bootstrap';
+@import 'app/scss/globals';
+@import 'app/scss/colors';
+@import 'app/scss/config';
 
 body {
+  font-family: $font-stack;
   background-color: $background-color;
   font-size: 16px;
 }
